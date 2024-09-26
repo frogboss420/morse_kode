@@ -18,13 +18,20 @@ for i in range(len(alfabet)-1):
 def translate(letter, code):
     if letter in code:
         return code[letter]
+    else:
+        return '?'
 
 
 # Denne funktion oversætter en vilkårlig tekststreng til morsekode
 # '/' markerer nyt bogstav
 # '//' markerer nyt ord
 def encodeMessage(message, code):
-    pass
+    for i in range (len(message)-1):
+        translate(message[i],code)
+
+#temporary debug
+message = 'SUP BIG CHUNGUS'
+print(encodeMessage(message,morseCode))
 
 # Denne funktion oversætter en korrekt formatteret morsebesked til bogstaver
 # '/' markerer nyt bogstav
