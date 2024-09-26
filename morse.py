@@ -16,7 +16,12 @@ for i in range(len(morse)):
 
 # Denne funktion oversætter et enkelt bogstav (letter) med opslag i dictionay (code) hvis muligt
 def translate(letter, code):
-    pass
+    if letter in alfabet:
+        return code[letter]
+    elif letter in morse:
+        return letter[code]
+
+
 
 # Denne funktion oversætter en vilkårlig tekststreng til morsekode
 # '/' markerer nyt bogstav
