@@ -33,5 +33,15 @@ def encodeMessage(message, code):
 # Denne funktion oversætter en korrekt formatteret morsebesked til bogstaver
 # '/' markerer nyt bogstav
 # '//' markerer nyt ord
-def decodeMessage(message, code):
-    pass
+def decodeMessage(morseMessage, code):
+    separatedMessage = []
+    translatedLetters = []
+    morseMessage = str(morseMessage)
+    morseMessage = morseMessage.replace('//',' ') #Replaces // with space
+    separatedMessage = morseMessage.split("/") #Splits the given message at each /, and adds it as a string to the list
+    for i in separatedMessage:
+        translatedLetters.append(code[i])#adds the translated letters in the translatedLetters list
+    translatedMessage = "".join(translatedLetters)#molds the strings together as one. One string to rule them all.
+    return translatedMessage
+
+print(decodeMessage('.../---/...//.',morseCodeReverse)) #temporary debugger
