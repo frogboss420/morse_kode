@@ -1,5 +1,5 @@
 #lister til alfabet og morsekode for at definere key og value
-morse=['','.-','-...','-.-.','-..','.','..-.','--.','....','..','.---','-.-','.-..','-.','--','---','.--.','--.-','.-.','...','-','..-','...-','.--','-..-','-.--','--..','.-.-','---.','.--.-','.----','..---','...--','....-','.....','-....','--...','---..','----.','-----','.-.-.-','--..--','---...','..--..','-....-','-..-.','-.-.--']
+morse=['','.-','-...','-.-.','-..','.','..-.','--.','....','..','.---','-.-','.-..','--','-.','---','.--.','--.-','.-.','...','-','..-','...-','.--','-..-','-.--','--..','.-.-','---.','.--.-','.----','..---','...--','....-','.....','-....','--...','---..','----.','-----','.-.-.-','--..--','---...','..--..','-....-','-..-.','-.-.--']
 
 alfabet=[' ','A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z','Æ','Ø','Å','1','2','3','4','5','6','7','8','9','0','.',',',':','?','-','/','!']
 
@@ -25,11 +25,12 @@ def translate(letter, code):
 # '//' markerer nyt ord
 def encodeMessage(message, code):
     message = str(message)
+    message=message.upper()
     out=''
     for i in range (len(message)):
         out+=translate(message[i],code)+'/'
     return out
-
+print(encodeMessage('HELLO MY NAME IS JEFF HEHE XD',morseCode))
 # Denne funktion oversætter en korrekt formatteret morsebesked til bogstaver
 # '/' markerer nyt bogstav
 # '//' markerer nyt ord
@@ -39,9 +40,9 @@ def decodeMessage(morseMessage, code):
     morseMessage = str(morseMessage)
     separatedMessage = morseMessage.split("/") #Splits the given message at each /, and adds it as a string to the list
     for i in separatedMessage:
-        translatedLetters.append(code[i])#adds the translated letters in the translatedLetters list
+        translatedLetters.append(code[i])
+        #adds the translated letters in the translatedLetters list
     translatedMessage = "".join(translatedLetters)#molds the strings together as one. One string to rule them all.
     return translatedMessage
 
 print(decodeMessage('.../---/...//.',morseCodeReverse)) #temporary debugger
-print (morseCode)
