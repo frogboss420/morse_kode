@@ -1,7 +1,7 @@
 #lister til alfabet og morsekode for at definere key og value
-morse=['','.-','-..','-.-.','-..','.','..-.','--.','....','..','.---','-.-','.-..','-.','--','---','.--.','--.-','.-.','...','-','.--','...-','.--','-..-','-.--','--..','.-.-','---.','.--.-','.----','..---','...--','....-','.....','-....','--...','---..','----.','-----','.-.-.-','--..--','---...','..--..','.----.','-....-','-..-.','-.--.','-.--.-','.-..-.','.--.-.']
+morse=['','.-','-..','-.-.','-..','.','..-.','--.','....','..','.---','-.-','.-..','-.','--','---','.--.','--.-','.-.','...','-','.--','...-','.--','-..-','-.--','--..','.-.-','---.','.--.-','.----','..---','...--','....-','.....','-....','--...','---..','----.','-----','.-.-.-','--..--','---...','..--..','-....-','-..-.']
 
-alfabet=[' ','A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z','Æ','Ø','Å','1','2','3','4','5','6','7','8','9','0','.',',',':','?',"'",'-','/','(',')','"','@']
+alfabet=[' ','A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z','Æ','Ø','Å','1','2','3','4','5','6','7','8','9','0','.',',',':','?','-','/']
 
 # Dictionary til oversættelse fra bogstaver til morsekode
 # Dictionary til oversættelse fra morsekode til bogstaver. Tomt oversættes til mellemrum.
@@ -37,7 +37,6 @@ def decodeMessage(morseMessage, code):
     separatedMessage = []
     translatedLetters = []
     morseMessage = str(morseMessage)
-    morseMessage = morseMessage.replace('//',' ') #Replaces // with space
     separatedMessage = morseMessage.split("/") #Splits the given message at each /, and adds it as a string to the list
     for i in separatedMessage:
         translatedLetters.append(code[i])#adds the translated letters in the translatedLetters list
