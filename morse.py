@@ -14,6 +14,7 @@ for i in range(len(alfabet)):
 
 # Denne funktion oversætter et enkelt bogstav (letter) med opslag i dictionay (code) hvis muligt
 def translate(letter, code):
+    letter = letter.upper()
     if str(letter) in code:
         return code[letter]
     else:
@@ -29,6 +30,10 @@ def encodeMessage(message, code):
     out=''
     for i in range (len(message)):
         out+=translate(message[i],code)+'/'
+    if out[len(out)-2] != '/':
+        out = out.split()
+        out.append('/')
+        out = ''.join(out)
     return out
 print(encodeMessage('HELLO MY NAME IS JEFF HEHE XD',morseCode))
 # Denne funktion oversætter en korrekt formatteret morsebesked til bogstaver
@@ -45,4 +50,6 @@ def decodeMessage(morseMessage, code):
     translatedMessage = "".join(translatedLetters)#molds the strings together as one. One string to rule them all.
     return translatedMessage
 
-print(decodeMessage('.../---/...//.',morseCodeReverse)) #temporary debugger
+#print(decodeMessage('.../---/...//.',morseCodeReverse)) #temporary debugger
+#encoded = encodeMessage('hello my name is JEFF HELLO MY NAME IS jeff g',morseCode)
+#print(decodeMessage(encoded, morseCodeReverse))

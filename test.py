@@ -24,10 +24,11 @@ class TestDictionary(unittest.TestCase):
 
 class TestTranslateStringToMorse(unittest.TestCase):
     def testTranslateCharacter(self):
-        char = random.choice(string.ascii_letters)
-        reference = encode(char, language='english')
-        subject = morse.translate(char, morse.morseCode).upper()
-        self.assertEqual(reference, subject)
+        for char in string.ascii_letters:
+            reference = encode(char, language='english')
+            subject = morse.translate(char, morse.morseCode).upper()
+            print(char,'|' + reference + '|' + subject + '|')
+            self.assertEqual(reference, subject)
 
     def testTranslateText(self):
         req = requests.get('https://loripsum.net/api/1/short/plaintext')
@@ -44,10 +45,12 @@ class TestTranslateStringToMorse(unittest.TestCase):
 
 class TestTranslateMorseToString(unittest.TestCase):
     def testTranslateCharacter(self):
-        reference = random.choice(string.ascii_letters).upper()
-        morse_char = encode(reference, language='english')
-        subject = morse.translate(morse_char, morse.morseCodeReverse).upper()
-        self.assertEqual(reference, subject)
+        for reference in string.ascii_letters:
+            reference = reference.upper()
+            morse_char = encode(reference, language='english')
+            subject = morse.translate(morse_char, morse.morseCodeReverse)
+            print('|'+reference+'|'+subject+'|')
+            self.assertEqual(reference, subject)
 
     def testTranslateText(self):
         req = requests.get('https://loripsum.net/api/1/short/plaintext')
