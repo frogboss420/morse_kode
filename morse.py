@@ -52,6 +52,6 @@ def decodeMessage(morseMessage, code):
     return translatedMessage
 
 #Fejlfindingskode.
-#print(decodeMessage('.../---/...//.',morseCodeReverse))
-#encoded = encodeMessage('hello my name is JEFF HELLO MY NAME IS jeff g',morseCode)
-#print(decodeMessage(encoded, morseCodeReverse))
+encoded = encodeMessage('hello my name is JEFF HELLO MY NAME IS jeff g',morseCode)
+print(decodeMessage(encoded, morseCodeReverse))
+print(encoded)
